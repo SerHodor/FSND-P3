@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %} Home: Most Recent Blogs {% endblock %} {% block content %}
+<div class="container">
+    <div class="alert alert-warning hidden warning warning-display col-xs-10 col-md-7 col-md-offset-2 text-center" role="alert"></div>
+    <h1 class="col-xs-10 col-md-7 col-md-offset-2 text-center">Most Recent Blogs</h1>
+    <div class="row">
+        <div class="col-xs-10 col-md-7 col-md-offset-2 blog">
+            <h2><a href="{{'/'+blog.blog_id}}">{{blog.subject}}</a></h2>
+            <p class="text-muted">
+                by | <span class="text-primary">{{blog.created_by}}</span> on {{blog.created.strftime("%b %d")}} {% if blog.userResponse == 3 %} |&nbsp;
+                <a href="/{{blog.blog_id}}/EditBlog" class="text-warning">edit</a>
+                <a class="text-muted align-right clickable" data-toggle="modal" data-target="{{'#'+blog.blog_id}}">Del</a>
+                <div class="modal fade" id="{{ blog.blog_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Delete this Post?</h4></div>
+                            <div class="modal-body">Clicking 'Yes' will permanently delete this data.</div>
+                            <div class="modal-footer">
+                                <a class="btn btn-primary" data-dismiss="modal">No</a>
+                                <a class="btn btn-default" onclick="DeleteBlog(event, {{blog.blog_id}})">Yes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </p>
+            <div class="text-justify">{{blog.content | safe}}</div>
+            <small href="#" class="pull-right text-primary clickable" onclick="toggleHidden(event)">Comment</small>
+            <div class="comment-box hidden">
+                <div class="input-group col-xs-12">
+                    <textarea data-autoresize class="form-control" rows="1"></textarea>
+                    <span class="input-group-btn">
+                        <a class="btn-sm btn-primary clickable comment-button" onclick="Comment(event, {{blog.blog_id}});">Comment</a>
+                    </span>
+                </div>
+                <div class="display-comments col-xs-12">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2 response-side-bar text-center {% if blog.userResponse == 3 %}{{'text-muted unclickable'}}{% endif %}">
+            <div class="glyphicon glyphicon-chevron-up {% if blog.userResponse == 1 %}{{'text-success'}}{% endif %}" aria-hidden="true" onclick="Like(event, {{blog.blog_id}});"></div>
+            <div class="score">{{blog.like_count - blog.dislike_count}}</div>
+            <div class="glyphicon glyphicon-chevron-down {% if blog.userResponse == 2 %}{{'text-danger'}}{% endif %}" aria-hidden="true" onclick="Unlike(event, {{blog.blog_id}});"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

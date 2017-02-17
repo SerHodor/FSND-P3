@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="icons/serhodor.jpg">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery_v1_12_4.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="alert alert-info">
+            <p class="text-right container">
+                <a type="button" class="btn btn btn-primary" href="/"><span class="glyphicon glyphicon-home"></span></a>
+                <a type="button" class="btn btn btn-primary" href="/AddNewPost">Add New Post</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% if username: %} not <strong>{{ username }}</strong>?
+                <a href="/LogOut" class="text-muted">Log Out</a>
+                {% else %}   
+                    <a href="/LogIn">Log in</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="text-muted">| &nbsp;&nbsp;&nbsp;&nbsp;new to this site? &nbsp;&nbsp;->&nbsp;&nbsp;</span>
+                    <a href="/SignUp">Sign Up Here!</a>
+                {% endif %}
+            </p>
+    </div>
+    {% block content %} {% endblock %}
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <footer>
+      <p class="alert alert-info text-center">Udacity Course Project</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %} Sign Up {% endblock %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form class="center-block max-width-300" method="post">
+                <h2>Sign Up</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username" value="{{username_old}}" required>
+                </div>
+                {% if username_error: %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> {{ username_error }}
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label>Email (optional)</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{email_old}}">
+                </div>
+                {% if email_error: %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> {{ email_error }}
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+                {% if password_error: %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> {{ password_error }}
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label>Verify Password</label>
+                    <input type="password" class="form-control" name="re_password" placeholder="Verify Password" required>
+                </div>
+                {% if re_password_error: %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> {{ re_password_error }}
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

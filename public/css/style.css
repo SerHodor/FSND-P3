@@ -1,0 +1,158 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    min-width: 250px;
+    background-color: #f7f7f9;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #2d3c49;
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #7d97ad;
+    margin-top: 0;
+    margin-bottom: 0.6em;
+    font-size: 1.8em;
+}
+
+p {
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+.comment-hr {
+    border: none;
+    height: 0.1px;
+    color: #7d97ad;
+    background-color: #7d97ad;
+}
+
+.max-width-300 {
+    max-width: 300px;
+}
+
+a,
+a:hover,
+a:visited,
+a:link,
+a:active,
+a:before {
+    text-decoration: none;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.col-xs-2 {
+    height: 100%;
+}
+
+.glyphicon-chevron-up,
+.glyphicon-chevron-down,
+.score {
+    font-size: 2em;
+}
+
+.glyphicon:hover {
+    cursor: pointer;
+}
+
+.response-side-bar {
+    margin-top: 4.3em;
+}
+
+.score {
+    margin-top: -3%;
+    margin-left: -2%;
+}
+
+.align-right {
+    display: block;
+    float: right;
+}
+
+.unclickable {
+    pointer-events: none;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
+    padding: 1px 5px !important;
+    font-size: 14px !important;
+    border-radius: 3px !important;
+}
+
+.blog:hover {
+    background-color: #eaeaea;
+}
+
+.blog {
+    padding: 35px 15px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-style: solid;
+    border-color: #d2d2d2;
+}
+
+.comment-box {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 12px !important;
+}
+
+.display-comments {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 20px;
+}
+
+.comment {
+    border-radius: 3px !important;
+    padding: 5px;
+    border: 0.5px;
+    border-style: solid;
+    border-color: #bbb;
+}
+
+.warning-display {
+    margin-bottom: 10px;
+}
